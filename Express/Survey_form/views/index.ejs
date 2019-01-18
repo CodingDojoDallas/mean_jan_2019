@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+  label, button{
+    display: block;
+  }
+</style>
+<body>
+<div class="container">
+<h1>The Dojo Survey</h1>
+<form action="/result" method="post">
+<div>
+  <label for="name">Name</label>
+  <input type="text" class="form-control" name="name">
+</div>
+<div>
+  <label for="location">Dojo Location</label>
+    <select class="form-control" name="location">
+      <option>Please select a location</option>
+      <option value="San Fransisco">San Fransisco</option>
+      <option value="New York City">New York City</option>
+      <option value="Dallas">Dallas</option>
+      <option value="Home">Home</option>
+    </select>
+</div>
+<div>
+  <label for="language">Favorite Language</label>
+  <select class="form-control" name="language">
+    <option>Please select a language</option>
+    <option value="Ruby">Ruby</option>
+    <option value="iOS">iOS</option>
+    <option value="Python">Python</option>
+    <option value="C++">C++</option>
+  </select>
+</div>
+  <div>
+    <label for="comment">Comment (optional)</label>
+    <textarea class="form-control" name="comment" rows="3"></textarea>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+</div>
+</body>
+</html>
