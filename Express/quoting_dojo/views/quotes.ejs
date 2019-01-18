@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Here are the awesome Quotes</h1>
+<!-- based on the structure of your messages, determine how to display them -->
+
+	
+	<% for (var x of quotes) { %>
+      <h3><%= x.name %></h3>
+      <h4> <%= x.quote %></h4>
+    <% } %>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript">
+	class Card {
+		//num = value
+		constructor(num, suit, name){
+			this.num=num;
+			this.suit = suit;
+			this.name = name;
+		}
+		show(){
+			console.log(name +" of "+ suit);
+			return this;
+		}
+
+	}
+	class Deck {
+		constructor(){
+			this.deck = [];
+			this.shuffle();
+			this.reset();
+		}
+		reset(){
+			var deck = [];
+			const suits = ["hearts", "spades", "clubs", "diamonds"];
+			const value = [[1,"ace"], [2,"two"], [3,"three"], [4,"four"], [5,"five"], [6,"six"], [7,"seven"], [8,"eight"], [9,"nine"], [10,"ten"], [11,"jack"], [12,"queen"], [13,"king"]];
+			for(var i in suit){
+				for(var j in num){
+					var card = new Card(num[j][0], suit[i] , num[j][1]);
+					deck.push(card);
+				}
+			}
+			return this;
+		}
+		shuffle(){
+			const deck = this.deck;
+			let m = deck.length, i;
+			while (m){
+				i = Math.floor(Math.random()* m--);
+			}
+			return this;
+		}
+
+		deal(){
+			return this.deck.pop();
+		}
+	}
+	const deck1 = new Deck();
+	deck1.reset;
+	console.log(deck1.deck);
+
+	class Player extends Deck{
+		constructor(name){
+			this.name=name;
+			var hand = [];
+
+		}
+		hand(){
+			hand=deck1.shift(5);
+			return this;
+		}
+		take(){
+			hand.push(deck.deal);
+			return this;
+		}
+		discard(){
+			return hand.pop();
+		}
+	}
+
+</script>
+<body>
+
+</body>
+</html>
