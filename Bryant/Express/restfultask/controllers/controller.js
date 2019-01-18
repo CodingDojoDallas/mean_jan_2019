@@ -29,18 +29,19 @@ module.exports = {
 		var task = new Task({title: req.params.title, desc: req.params.desc});
 		task.save(function(err) {
     		if(err) {
-      			res.redirect('/')
+    			console.log("Error Task");
+      			res.json({message: "Error Adding Task"});
     		} 
     		else {
-    			res.json({message: "Successfully Added", data:task})
+    			res.json({message: "Successfully Added", data: task})
     		}
 		});
 	},
 
 	update: function(req,res){
 		var task = Task.update({_id: req.params.id}, 
-								   {title: req.params.title, desc: req.params.desc},
-								   function(err){
+								   {title: req.params.title, desc: req.params.desc, completed: req.params.complete},
+								   function(err, task){
 										if(err) {
       											res.json({message: "Error Updating Task"});
     									} 
@@ -52,9 +53,9 @@ module.exports = {
 
 	destroy: function(req,res){
 		Task.remove({_id: req.params.id}, 
-					function(err, persons){
+					function(err){
 						if (err){
-							res.send('error');
+							res.json({message: "Error destroying task"});
 
 						}
 						else {
