@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Welcome to the Counter Page.</h1>
+	<h3>You have visited this page <%= session.count %> times.</h3>
+
+
+	<form action='/count' method='get'>
+		<input type='submit' value='Double'>
+		
+	</form>
+	<form action='/reset' method= 'get'>
+		<input type="submit" value="Reset">
+	</form>
+</body>
+</html>

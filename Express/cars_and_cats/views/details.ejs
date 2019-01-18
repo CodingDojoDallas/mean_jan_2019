@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<link rel="stylesheet" type="text/css" href="/stylesheets/cats.css">
+<body>
+	<h2>Details Page for <%= name %></h2>
+
+	<img src="<%= img %>">
+
+	<div><h4>Favorite Food: <%= food %></h4></div>
+
+	<div><h4>Age: <%= age %></h4></div>
+	<div id="toy">
+		<h3>Favorite toys: </h3>
+		<% for (var x in toys) { %>
+        <h4><%= toys[x] %></h4>
+    	<% } %>
+	</div>
+</body>
+</html>

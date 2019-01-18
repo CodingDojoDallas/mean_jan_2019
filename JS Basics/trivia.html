@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	#title{
+		text-align: center;
+	}
+	li{
+		margin: 2px;
+	}
+</style>
+
+<body>
+	<button id='start'>Start Trivia</button>
+	<h1 id='title'>Trivia Game</h1>
+	<div>
+		<h2>Score: 
+		</div>
+	<div id="q1">
+		<p id='q11'></p>
+		<ol id= type="A">
+			<li id='q1a1'></li>
+			<li id='q1a2'></li>
+			<li id='q1a3'></li>
+			<li id='q1a4'></li>
+		</ol>
+		<button id='q12'>Answer</button>
+	</div>
+	<div id="q2">
+		<p id='q21'></p>
+		<ol id= type="A">
+			<li id='q2a1'></li>
+			<li id='q2a4'></li>
+			<li id='q2a3'></li>
+			<li id='q2a2'></li>
+		</ol>
+		<button id='q22'>Answer</button>
+	</div>
+	<div id="q3">
+		<p id='q31'></p>
+		<ol id= type="A">
+			<li id='q3a1'></li>
+			<li id='q3a3'></li>
+			<li id='q3a2'></li>
+			<li id='q3a4'></li>
+		</ol>
+		<button id='q32'>Answer</button>
+	</div>
+	<div id="q4">
+		<p id='q41'></p>
+		<ol id= type="A">
+			<li id='q4a2'></li>
+			<li id='q4a1'></li>
+			<li id='q4a3'></li>
+			<li id='q4a4'></li>
+		</ol>
+		<button id='q42'>Answer</button>
+	</div>
+	<div id="q5">
+		<p id='q51'></p>
+		<ol id= type="A">
+			<li id='q5a1'></li>
+			<li id='q5a3'></li>
+			<li id='q5a2'></li>
+			<li id='q5a4'></li>
+		</ol>
+		<button id='q52'>Answer</button>
+	</div>
+	<div id="q6">
+		<p id='q61'></p>
+		<ol id= type="A">
+			<li id='q6a1'></li>
+			<li id='q6a4'></li>
+			<li id='q6a3'></li>
+			<li id='q6a2'></li>
+		</ol>
+		<button id='q62'>Answer</button>
+	</div>
+	<div id="q7">
+		<p id='q71'></p>
+		<ol id= type="A">
+			<li id='q7a2'></li>
+			<li id='q7a1'></li>
+			<li id='q7a3'></li>
+			<li id='q7a4'></li>
+		</ol>
+		<button id='q72'>Answer</button>
+	</div>
+
+
+</body>
+<script type="text/javascript">
+	alert("Welcome to Trivia Game. Click on correct answer to increase your score. Or press answer if you give up. Good Luck!")
+	$('ol').hide();
+	$('button').hide();
+	$('#start').show();
+	var count = 0;
+	$('#start').click(function(){
+		$.get("https://opentdb.com/api.php?amount=7&category=31&difficulty=easy&type=multiple", displayQuestion
+			);
+		$('ol').show();
+		$('button').show();
+		$('li').mouseenter(function(){
+			$(this).css("text-decoration", "underline");
+		});
+		$('li').mouseleave(function(){
+			$(this).css("text-decoration", "none");
+		});
+		
+
+
+		function displayQuestion(data){
+			console.log(data);
+			$('#q11').html(data.results[0].question);
+			$('#q1a1').html(data.results[0].incorrect_answers[0])
+			$('#q1a2').html(data.results[0].correct_answer)
+			$('#q1a3').html(data.results[0].incorrect_answers[2])
+			$('#q1a4').html(data.results[0].incorrect_answers[1])
+
+			$('#q21').html(data.results[1].question);
+			$('#q2a1').html(data.results[1].incorrect_answers[0])
+			$('#q2a2').html(data.results[1].correct_answer)
+			$('#q2a3').html(data.results[1].incorrect_answers[2])
+			$('#q2a4').html(data.results[1].incorrect_answers[1])
+
+			$('#q31').html(data.results[2].question);
+			$('#q3a1').html(data.results[2].incorrect_answers[0])
+			$('#q3a2').html(data.results[2].correct_answer)
+			$('#q3a3').html(data.results[2].incorrect_answers[2])
+			$('#q3a4').html(data.results[2].incorrect_answers[1])
+
+			$('#q41').html(data.results[3].question);
+			$('#q4a1').html(data.results[3].incorrect_answers[0])
+			$('#q4a2').html(data.results[3].correct_answer)
+			$('#q4a3').html(data.results[3].incorrect_answers[2])
+			$('#q4a4').html(data.results[3].incorrect_answers[1])
+
+			$('#q51').html(data.results[4].question);
+			$('#q5a1').html(data.results[4].incorrect_answers[0])
+			$('#q5a2').html(data.results[4].correct_answer)
+			$('#q5a3').html(data.results[4].incorrect_answers[2])
+			$('#q5a4').html(data.results[4].incorrect_answers[1])
+
+			$('#q61').html(data.results[5].question);
+			$('#q6a1').html(data.results[5].incorrect_answers[0])
+			$('#q6a2').html(data.results[5].correct_answer)
+			$('#q6a3').html(data.results[5].incorrect_answers[2])
+			$('#q6a4').html(data.results[5].incorrect_answers[1])
+
+
+			$('#q71').html(data.results[6].question);
+			$('#q7a1').html(data.results[6].incorrect_answers[0])		
+			$('#q7a3').html(data.results[6].incorrect_answers[2])
+			$('#q7a4').html(data.results[6].incorrect_answers[1])
+			$('#q7a2').html(data.results[6].correct_answer)
+
+
+			
+		}
+		$('#q12').click(function(){
+			$('#q1a1').css('color','red');
+			$('#q1a2').css('color', "green");
+			$('#q1a3').css('color','red');
+			$('#q1a4').css('color','red');
+		});
+
+		$('#q22').click(function(){
+			$('#q2a1').css('color','red');
+			$('#q2a2').css('color', "green");
+			$('#q2a3').css('color','red');
+			$('#q2a4').css('color','red');
+		});
+		$('#q32').click(function(){
+			$('#q3a1').css('color','red');
+			$('#q3a2').css('color', "green");
+			$('#q3a3').css('color','red');
+			$('#q3a4').css('color','red');
+		});
+		$('#q42').click(function(){
+			$('#q4a1').css('color','red');
+			$('#q4a2').css('color', "green");
+			$('#q4a3').css('color','red');
+			$('#q4a4').css('color','red');
+		});
+		$('#q52').click(function(){
+			$('#q5a1').css('color','red');
+			$('#q5a2').css('color', "green");
+			$('#q5a3').css('color','red');
+			$('#q5a4').css('color','red');
+		});
+		$('#q62').click(function(){
+			$('#q6a1').css('color','red');
+			$('#q6a2').css('color', "green");
+			$('#q6a3').css('color','red');
+			$('#q6a4').css('color','red');
+		});
+		$('#q72').click(function(){
+			$('#q7a1').css('color','red');
+			$('#q7a2').css('color', "green");
+			$('#q7a3').css('color','red');
+			$('#q7a4').css('color','red');
+		});
+
+
+		$('#q1a2').click(function(){
+			$(this).css('color', "green");
+			alert("Correct Answer!");
+			count++;
+		});
+		$('#q2a2').click(function(){
+			$(this).css('color', "green");
+			alert("Correct Answer!");
+			count++;
+		});
+		$('#q3a2').click(function(){
+			$(this).css('color', "green");
+			alert("Correct Answer!");
+			count++;
+		});
+		$('#q4a2').click(function(){
+			$(this).css('color', "green");
+			alert("Correct Answer!");
+			count++;
+		});
+		$('#q5a2').click(function(){
+			$(this).css('color', "green");
+			alert("Correct Answer!");
+			count++;
+		});
+		$('#q6a2').click(function(){
+			$(this).css('color', "green");
+			alert("Correct Answer!");
+			count++;
+		});
+		$('#q7a2').click(function(){
+			$(this).css('color', "green");
+			alert("Correct Answer!");
+			count++;
+		});
+	});
+	
+</script>
+</html>
