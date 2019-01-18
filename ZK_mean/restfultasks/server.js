@@ -15,7 +15,7 @@ app.use(express.static( __dirname + '/public/dist/public' ));
 const Task = require('./tasks');
 
 var routemyapp = function(){
-    app.get('/',function(req,res){
+    app.get('/all',function(req,res){
         Task.find({},function(err,tasks){
             if (err){res.json({message: "Error", error: err})}
             else {res.json(tasks)}
@@ -44,7 +44,7 @@ var routemyapp = function(){
         })
     });
     app.put('/:id',function(req,res){
-        Task.findByIdAndUpdate(req.params.id,{title:req.body.title,description:req.body.description},function(err,task){
+        Task.findOneAndUpdate(req.params.id,{title:req.body.title,description:req.body.description},function(err,task){
             if (err){res.json({message: "Error", error: err})}
             else {res.json(task)}
         })

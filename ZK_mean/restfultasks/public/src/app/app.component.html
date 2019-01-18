@@ -1,7 +1,11 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-    {{ tasks }}
-  </h1>
+  <h1 *ngIf="newtask">You created a new task: {{newtask.title}}</h1>
+  <h1>Here are all the tasks:</h1>
+  <ul>
+  <li *ngFor="let task of alltasks">Task title: {{task.title}}</li>
+  </ul>
+  <h1 *ngIf="showtask">Heres one task to look at: {{showtask.title}}</h1>
+  <h1 *ngIf="editedtask">You edited that task so now it is: {{editedtask.title}}</h1>
+  <h1 *ngIf="deletedtask">You deleted that task?: {{deletedtask.message}}</h1>
+
 <router-outlet></router-outlet>
