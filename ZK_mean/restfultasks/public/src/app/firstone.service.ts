@@ -23,5 +23,11 @@ export class FirstoneService {
   deleteTask(id) {
     return this._http.get('/destroy/'+id);
   }
+  summonVader(){
+    return this._http.get('https://swapi.co/api/people/4/');
+  }
+  getPlanet(url){
+    return this._http.get(url);
+  }
 
 }
