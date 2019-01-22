@@ -1,0 +1,13 @@
+img{
+	width:500px;
+	height: 300px;
+}
+#aa,#ab{
+	display: inline;
+}
+#ac,#ad{
+	display: inline;
+}
+#ae,#af{
+	display: inline;
+}

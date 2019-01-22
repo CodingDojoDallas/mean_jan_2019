@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	input{
+		display: block;
+	}
+</style>
+<body>
+<h1>Welcome to Quoting Dojo!</h1>
+<form action='/quotes' method='post'>
+	Your Name:
+	<input type="text" name="name">
+	Your Quote:
+	<input type="text" name="quote">
+	<input type="submit" value="Add My Quote">
+</form>
+<form action='/quotes' method='get'>
+	<input type="submit" value="Skip to All Quotes">
+	
+</form>
+</body>
+</html>
