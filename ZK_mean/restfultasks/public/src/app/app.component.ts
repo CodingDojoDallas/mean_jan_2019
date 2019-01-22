@@ -17,11 +17,11 @@ export class AppComponent implements OnInit {
   title = 'public';
   
   constructor (private _firstoneService: FirstoneService){
-    this.createTask({title:'newtask123',description:'the newest task1234'});
-    this.indexTasks();
-    this.showTask('5c3f87b37908d22ad4cce8d8');
-    this.editTask('5c425322886a8a2ce80f3248',{title:"REEALY NEW TITLE",description:"NewDescription"});
-    this.deleteTask('5c425a11a60771283c110787');
+    // this.createTask({title:'newtask123',description:'the newest task1234'});
+    // this.indexTasks();
+    // this.showTask('5c3f87b37908d22ad4cce8d8');
+    // this.editTask('5c425322886a8a2ce80f3248',{title:"REEALY NEW TITLE",description:"NewDescription"});
+    // this.deleteTask('5c425a11a60771283c110787');
     // this.summonVader();
   }
   ngOnInit(){
@@ -36,14 +36,18 @@ export class AppComponent implements OnInit {
     })
   }
   indexTasks() {
+    console.log("indexTasks was invoked");
+    console.log(event);
     this._firstoneService.indexTasks().subscribe((data: any) => {
       console.log('index all tasks data:',data)
       this.alltasks = data;
     });
   }
   showTask(id) {
+    console.log('showTask was invoked',id);
     this._firstoneService.showTask(id).subscribe((data: any) => {
       this.showtask = data;
+      console.log("show task data", this.showtask);
     });
   }
   createTask(edits) {
