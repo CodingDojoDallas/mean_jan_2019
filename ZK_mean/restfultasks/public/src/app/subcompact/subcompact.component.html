@@ -1,0 +1,5 @@
+    <form (submit)="editTask(showingtask._id)">
+        Title <input type='text' name="tasktitle" [(ngModel)]="showingtask.title">
+        Description <input type='text' name="taskdescription" [(ngModel)]="showingtask.description">
+        <input type='submit' name='' value='Edit This Task'>
+    </form>

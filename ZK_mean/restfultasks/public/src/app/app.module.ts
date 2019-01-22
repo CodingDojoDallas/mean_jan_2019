@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FirstoneService} from './firstone.service';
 import { FormsModule } from '@angular/forms';
+import { SubcompactComponent } from './subcompact/subcompact.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SubcompactComponent
   ],
   imports: [
     BrowserModule,

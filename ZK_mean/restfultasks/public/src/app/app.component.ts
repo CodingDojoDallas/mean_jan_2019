@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
 import {FirstoneService} from './firstone.service'
 
 
@@ -11,7 +10,7 @@ import {FirstoneService} from './firstone.service'
 export class AppComponent implements OnInit {
   newtask={};
   alltasks;
-  showtask;
+  showtask={};
   editedtask={};
   deletedtask;
   title = 'public';
@@ -36,10 +35,7 @@ export class AppComponent implements OnInit {
     })
   }
   indexTasks() {
-    console.log("indexTasks was invoked");
-    console.log(event);
     this._firstoneService.indexTasks().subscribe((data: any) => {
-      console.log('index all tasks data:',data)
       this.alltasks = data;
     });
   }
