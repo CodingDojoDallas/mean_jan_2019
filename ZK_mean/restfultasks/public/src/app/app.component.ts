@@ -9,10 +9,10 @@ import {FirstoneService} from './firstone.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  newtask;
+  newtask={};
   alltasks;
   showtask;
-  editedtask;
+  editedtask={};
   deletedtask;
   title = 'public';
   
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     // this.summonVader();
   }
   ngOnInit(){
-    console.log("Component says, 'I've been initialized!");
+    this.indexTasks();
   };
   summonVader(){
     this._firstoneService.summonVader().subscribe((data:any) =>{
@@ -50,22 +50,26 @@ export class AppComponent implements OnInit {
       console.log("show task data", this.showtask);
     });
   }
-  createTask(edits) {
-    this._firstoneService.createTask(edits).subscribe((data: any) => {
+  createTask() {
+    this._firstoneService.createTask(this.newtask).subscribe((data: any) => {
       console.log('created task data:',data)
       this.newtask = data.task;
+      this.indexTasks();
     });
   }
   deleteTask(id) {
     this._firstoneService.deleteTask(id).subscribe((data: any) => {
       console.log('deleted task data:',data)
       this.deletedtask = data;
+      this.indexTasks();
     });
   }
-  editTask(id,edits) {
-    this._firstoneService.editTask(id,edits).subscribe((data: any) => {
+  editTask(id) {
+    this._firstoneService.editTask(id,this.showtask).subscribe((data: any) => {
       console.log('edited task data',data)
       this.editedtask = data;
+      this.showTask= data;
+      this.indexTasks();
     });
   }
 

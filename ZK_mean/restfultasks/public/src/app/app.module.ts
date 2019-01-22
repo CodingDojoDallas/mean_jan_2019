@@ -5,6 +5,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FirstoneService} from './firstone.service';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -13,7 +15,7 @@ import {FirstoneService} from './firstone.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,FormsModule
   ],
   providers: [FirstoneService],
   bootstrap: [AppComponent]
