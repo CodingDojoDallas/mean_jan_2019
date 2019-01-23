@@ -11,4 +11,10 @@ export class HttpService {
   getUsers() {
     return this._http.get('/users');
   }
+
+  submitForm(some_user) {
+    console.log('submitForm() - service', some_user);
+
+    return this._http.put(`/users/${some_user._id}`, some_user);
+  }
 }

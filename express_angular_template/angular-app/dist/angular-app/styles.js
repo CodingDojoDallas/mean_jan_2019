@@ -555,7 +555,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/joshreese/Documents/dojo/mean/mean_nov_2018/express_angular_template/angular-app/src/styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! /Users/joshreese/Documents/dojo/mean/mean_jan_2019/express_angular_template/angular-app/src/styles.css */"./src/styles.css");
 
 
 /***/ })

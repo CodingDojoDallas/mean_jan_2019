@@ -19,7 +19,16 @@ export class AppComponent {
   }
 
   submitForm() {
-    this.user = {'name': '', 'email': ''};
+    // this.user = {'name': '', 'email': ''};
+    console.log('submitForm() - .ts:', this.user);
+    this._httpService.submitForm(this.user).subscribe(data => {
+      console.log('we did it');
+    })
+  }
+
+  setUser(user_set) {
+    console.log('setUser', user_set);
+    this.user = user_set;
   }
 
   showUsers() {
