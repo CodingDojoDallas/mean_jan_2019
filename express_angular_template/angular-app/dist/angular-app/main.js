@@ -77,11 +77,11 @@ var AppComponent = /** @class */ (function () {
         this.user = { 'name': '', 'email': '' };
     };
     AppComponent.prototype.submitForm = function () {
-        // this.user = {'name': '', 'email': ''};
         console.log('submitForm() - .ts:', this.user);
         this._httpService.submitForm(this.user).subscribe(function (data) {
             console.log('we did it');
         });
+        // this.user = {'name': '', 'email': ''};
     };
     AppComponent.prototype.setUser = function (user_set) {
         console.log('setUser', user_set);

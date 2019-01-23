@@ -16,9 +16,9 @@ module.exports = {
   },
 
   edit: function(req, res) {
-    console.log('params:', req.params);
-    console.log('body:', req.body);
-    User.findOneAndUpdate(req.params.uid, {first_name: req.body.first_name, age: req.body.age}, {new: true}, function(err, user) {
+    // console.log('params:', req.params);
+    // console.log('body:', req.body);
+    User.findOneAndUpdate(req.params.uid, {$set: {name: '', first_name: req.body.first_name, age: req.body.age}}, {new: true}, function(err, user) {
         if (err) {
           res.json({'err': 'Ooooopsies'});
           console.log('some message');
