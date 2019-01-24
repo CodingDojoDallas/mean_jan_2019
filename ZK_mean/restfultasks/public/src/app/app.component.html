@@ -1,11 +1,37 @@
-<div style="text-align:center">
+<!-- <div style="text-align:center">
   <h1 *ngIf="newtask">You created a new task: {{newtask.title}}</h1>
   <h1>Here are all the tasks:</h1>
   <ul>
-  <li *ngFor="let task of alltasks">Task title: {{task.title}}</li>
+  <div *ngFor="let task of alltasks">
+    <li>Task title: {{task.title}}, {{task._id}}</li>
+    <button (click)="showTask(task._id)">Detail this task</button>
+  </div>
   </ul>
   <h1 *ngIf="showtask">Heres one task to look at: {{showtask.title}}</h1>
   <h1 *ngIf="editedtask">You edited that task so now it is: {{editedtask.title}}</h1>
   <h1 *ngIf="deletedtask">You deleted that task?: {{deletedtask.message}}</h1>
 
+<button (click)="indexTasks()">Show all the tasks</button>
+</div> -->
+
+<h1>Tasks</h1>
+<h3>Add a task to your list</h3>
+<form (submit)='createTask()'>
+  Title <input type='text' name="newtasktitle" [(ngModel)]="newtask.title">
+  Description <input type='text' name="newtaskdescription" [(ngModel)]="newtask.description">
+  <input type='submit' name='' value='Create New Task'>
+  </form>
+<div *ngFor='let task of alltasks'>
+  <h3>Task: {{task._id}}</h3>
+  <p>{{task.title}}</p>
+  <p>{{task.description}}</p>
+  <button (click)="showTask(task._id)">Edit</button>
+  <button (click)="deleteTask(task._id)">Delete</button>
+</div>
+<!-- <form *ngIf='showtask' (submit)="editTask(showtask._id)">
+Title <input type='text' name="tasktitle" [(ngModel)]="showtask.title">
+Description <input type='text' name="taskdescription" [(ngModel)]="showtask.description">
+<input type='submit' name='' value='Edit This Task'>
+</form> -->
+<app-subcompact [showingtask]='showtask'></app-subcompact>
 <router-outlet></router-outlet>

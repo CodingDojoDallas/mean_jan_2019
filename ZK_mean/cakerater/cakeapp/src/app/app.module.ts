@@ -1,25 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {FirstoneService} from './firstone.service';
+import { CakedisplayComponent } from './cakedisplay/cakedisplay.component';
+import { InterstellService} from './interstell.service';
+import {HttpClientModule} from '@angular/common/http';
+
 import { FormsModule } from '@angular/forms';
-import { SubcompactComponent } from './subcompact/subcompact.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SubcompactComponent
+    CakedisplayComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,FormsModule
+    AppRoutingModule,HttpClientModule, FormsModule 
   ],
-  providers: [FirstoneService],
+  providers: [InterstellService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

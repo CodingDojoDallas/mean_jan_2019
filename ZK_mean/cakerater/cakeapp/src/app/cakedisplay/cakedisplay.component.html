@@ -1,0 +1,8 @@
+<h1>{{displayedcake.name}}</h1>
+<h3>Baked by: {{displayedcake.baker}}</h3>
+<h3 *ngIf="displayedcake.avg"> Average Score: {{displayedcake.avg}} stars</h3>
+<img src="{{displayedcake.img_url}}" style="height:200px;width:300px">
+<h1 *ngFor="let comment of displayedcake.comments" name='thisgue'>
+  <p>{{comment.comment}}</p>
+  <p>{{comment.stars}} stars</p>
+</h1>

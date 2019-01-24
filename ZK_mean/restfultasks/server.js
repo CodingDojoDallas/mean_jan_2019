@@ -16,7 +16,9 @@ const Task = require('./tasks');
 
 var routemyapp = function(){
     app.get('/all',function(req,res){
+        console.log('server function run');
         Task.find({},function(err,tasks){
+            console.log('task function run');
             if (err){res.json({message: "Error", error: err})}
             else {res.json(tasks)}
         })

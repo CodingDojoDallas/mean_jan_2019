@@ -1,25 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {FirstoneService} from './firstone.service';
+import {GamestuffService} from './gamestuff.service';
+import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { SubcompactComponent } from './subcompact/subcompact.component';
-
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SubcompactComponent
+    AppComponent
   ],
-  imports: [
+  imports: [HttpClientModule,
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,FormsModule
+    AppRoutingModule,FormsModule
   ],
-  providers: [FirstoneService],
+  providers: [GamestuffService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

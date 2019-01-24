@@ -1,0 +1,41 @@
+<h1>I be the CAKERATOR!!! RATE MY CAKES!?!?!?</h1>
+
+<div style="border: 1pt solid blue;width:300px; padding:10pt;">
+  <form (submit)='createCake()'>
+    Name <input type='text' name="newcaketitle" [(ngModel)]="newcake.name"><br>
+    Description <input type='text' name="newcakedescription" [(ngModel)]="newcake.description"><br>
+    Baker <input type='text' name="newcakebaker" [(ngModel)]="newcake.baker"><br>
+    Cake Picture(add a url) <input type='text' name="newcakeimage" [(ngModel)]="newcake.img_url"><br>
+    <input type='submit' name='' value='Add a cake to the database'><br>
+  </form>
+</div>
+<div style="overflow-y: scroll;height:400px;">
+  <div  style="border:1pt solid red;" *ngFor='let cake of allcakes'>
+    <h3> {{cake.name}}</h3>
+    <img (click)='displayCake(cake)' src='{{cake.img_url}}' style="width:100px;height:100px;">
+    <p>{{cake.description}}</p>
+    <form (ngSubmit)='addcomment(cake)'>
+      Stars:<select name='stars' [(ngModel)]="cake.newcommentstars">
+      <option value='1'>&#10031;</option>
+      <option value='2'>&#10031; &#10031;</option>
+      <option value='3'>&#10031; &#10031; &#10031;</option>
+      <option value='4'>&#10031; &#10031; &#10031; &#10031;</option>
+      <option value='5'>&#10031; &#10031; &#10031; &#10031; &#10031;</option>
+      </select>
+      Comment:<input type='text' name='comment' [(ngModel)]="cake.newcommenttext">
+      <input type='submit' value='Rate this cake'>
+    </form>
+    <!-- <button (click)="showTask(cake._id)">Edit</button>
+    <button (click)="deleteTask(cake._id)">Delete</button> -->
+  </div>
+</div>
+<app-cakedisplay *ngIf='displaycake' [displayedcake]='displaycake'></app-cakedisplay>
+
+<router-outlet></router-outlet>
+
+<!-- <form *ngIf='showtask' (submit)="editTask(showtask._id)">
+Title <input type='text' name="tasktitle" [(ngModel)]="showtask.title">
+Description <input type='text' name="taskdescription" [(ngModel)]="showtask.description">
+<input type='submit' name='' value='Edit This Task'>
+</form> -->
+<!-- <app-subcompact [showingtask]='showtask'></app-subcompact> -->
