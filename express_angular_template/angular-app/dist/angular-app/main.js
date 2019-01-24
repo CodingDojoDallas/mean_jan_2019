@@ -41,7 +41,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<style>\n  input {\n  display: block;\n}\n</style>\n<button (click)=\"showUsers()\">Click here to get all the users.</button>\n\n<ul>\n  <li *ngFor='let user_for_li of users'>{{ user_for_li|json }}</li>\n</ul>\n\nUser in app.component.ts - {{ user|json }} -\n<form (submit)=submitForm()>\n  Name: <input type=\"text\" name=\"something\" [(ngModel)]=\"user.name\">\n  Email: <input type=\"text\" name=\"somethingelse\" [(ngModel)]=\"user.email\">\n  <input type=\"submit\" name=\"\" value=\"Reset user variable in app.component.ts\">\n</form>\n"
+module.exports = "<style>\n  input {\n  display: block;\n}\n</style>\n<button (click)=\"showUsers()\">Click here to get all the users.</button>\n\n<ul>\n  <li *ngFor='let user_for_li of users'>\n    {{ user_for_li|json }}\n    <button type=\"button\" name=\"button\" (click)=\"setUser(user_for_li)\">Click me!</button>\n  </li>\n</ul>\n\nUser in app.component.ts - {{ user|json }} -\n<form (ngSubmit)=submitForm()>\n  first_name: <input type=\"text\" name=\"something\" [(ngModel)]=\"user.first_name\">\n  age: <input type=\"number\" name=\"somethingelse\" [(ngModel)]=\"user.age\">\n  <input type=\"submit\" name=\"\" value=\"Edit\">\n</form>\n"
 
 /***/ }),
 
@@ -77,7 +77,15 @@ var AppComponent = /** @class */ (function () {
         this.user = { 'name': '', 'email': '' };
     };
     AppComponent.prototype.submitForm = function () {
-        this.user = { 'name': '', 'email': '' };
+        console.log('submitForm() - .ts:', this.user);
+        this._httpService.submitForm(this.user).subscribe(function (data) {
+            console.log('we did it');
+        });
+        // this.user = {'name': '', 'email': ''};
+    };
+    AppComponent.prototype.setUser = function (user_set) {
+        console.log('setUser', user_set);
+        this.user = user_set;
     };
     AppComponent.prototype.showUsers = function () {
         var _this = this;
@@ -182,6 +190,10 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.getUsers = function () {
         return this._http.get('/users');
     };
+    HttpService.prototype.submitForm = function (some_user) {
+        console.log('submitForm() - service', some_user);
+        return this._http.put("/users/" + some_user._id, some_user);
+    };
     HttpService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -255,7 +267,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/joshreese/Documents/dojo/mean/mean_nov_2018/express_angular_template/angular-app/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/joshreese/Documents/dojo/mean/mean_jan_2019/express_angular_template/angular-app/src/main.ts */"./src/main.ts");
 
 
 /***/ })

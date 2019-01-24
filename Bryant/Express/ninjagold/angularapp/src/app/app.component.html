@@ -1,0 +1,30 @@
+
+<h1 class="title">Ninja Gold Game</h1>
+<h2 class="title">Gold Stash: {{total_gold}}</h2>
+<div>
+<div class="loc">
+    <h2>Farm</h2><br>
+    <h4>Earns 2-5 gold</h4><br>
+    <button (click)="farmG()" >Plunder the Farm!</button>
+</div>
+<div class="loc">
+    <h2>Cave</h2><br>
+    <h4>Earns 5-10 gold</h4><br>
+    <button (click)="caveG()" >Plunder the Cave!</button>
+</div>
+<div class="loc">
+    <h2>House</h2><br>
+    <h4>Earns 7-15 gold</h4><br>
+    <button (click)="houseG()" >Plunder the House!</button>
+</div>
+<div class="loc"> 
+    <h2>Casino</h2><br>
+    <h4>Earn or lose up to 100 gold</h4><br>
+    <button (click)="casinoG()" >Gamble at the Casino!</button>
+</div>
+</div>
+<button (click)="save()" >Save Score</button>
+<h2>Adventure Log</h2><br>
+<div id='boxx'>
+    <p *ngFor= 'let action of actlog'>{{action}}</p>
+</div>
