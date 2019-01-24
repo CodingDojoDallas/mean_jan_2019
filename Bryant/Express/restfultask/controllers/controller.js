@@ -14,7 +14,7 @@ module.exports = {
 	},
 
 	show: function(req,res){
-		Task.find({_id: req.params.id},
+		Task.findById(req.params.id,
 				   function(err,task){
 				   		if (err){
 				   			res.json({message: "Error getting task"});

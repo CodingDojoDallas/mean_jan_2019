@@ -1,0 +1,15 @@
+.loc{
+    display: inline-block;
+
+    border: 1px solid black;
+    width: 200px;
+    margin: 50px;
+    text-align: center;
+}
+.title{
+    text-align: center;
+}
+#boxx{
+    overflow:auto;
+    height: 200px;
+}

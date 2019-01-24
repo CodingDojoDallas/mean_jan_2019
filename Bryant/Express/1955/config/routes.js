@@ -1,10 +1,10 @@
-const name_controller = require('../controllers/name');
+const person = require('../controllers/name');
 
 module.exports = function(app){
 	
-	app.get('/', name_controller.all);
-	app.get('/new/:name', name_controller.new);
-	app.get('/remove/:name', name_controller.remove);
-	app.get('/:name', name_controller.show);
+	app.get('/', person.all);
+	app.get('/new/:name', person.new);
+	app.get('/remove/:name', person.remove);
+	app.get('/:name', person.show);
 
 }
