@@ -3,6 +3,7 @@ var app = express();
 var path = require('path');
 var mongoose = require('./config/mongoose');
 var bodyParser = require('body-Parser');
+app.use(express.static( __dirname + '/angularRestfulTask/dist/angularRestfulTask' ));
 app.use(bodyParser.urlencoded( {extended: true}));
 app.use(bodyParser.json());
 
