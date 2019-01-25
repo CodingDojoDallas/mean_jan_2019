@@ -3,19 +3,19 @@ const express    = require('express'),
       path       = require('path'),
     //   bodyParser = require('body-parser'),
     //   mongoose   = require('./mongoose'),
-      axios      = require('axios'),
+    //   axios      = require('axios'),
       port       = 8000;
 
 // app.use(bodyParser.json());
 // app.use(express.static(path.join(__dirname, 'static')));
-app.use(express.static( __dirname + '../shintocoin/shintoapp/dist/shintoapp' ));
+app.use(express.static( __dirname + './shintoapp/dist/shintoapp' ));
 // app.set(path.join('views', __dirname, 'views'));
 // app.set('view engine', 'ejs');
 
 
 var routemyapp = function(){
     app.all("*",function(req,res){
-        res.sendFile(path.resolve("../shintocoin/shintoapp/dist/shintoapp/index.html"))
+        res.sendFile(path.resolve("./shintoapp/dist/shintoapp/index.html"))
     });
 }
 routemyapp();
