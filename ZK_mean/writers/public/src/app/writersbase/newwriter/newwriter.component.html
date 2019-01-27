@@ -1,0 +1,6 @@
+<h2>Add a writer</h2>
+<form (ngSubmit)='createwriter()'>
+  Name: <input name='wrtiername' type='text' [(ngModel)]="newwriter.name">
+  <input type='submit' value='Add writer'> 
+</form>
+<p>{{writers | json}}</p>
