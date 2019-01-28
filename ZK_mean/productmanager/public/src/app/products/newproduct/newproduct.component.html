@@ -1,0 +1,12 @@
+<h1>Add a product to the catalog:</h1>
+<ul *ngIf="(displayerrors.length>0)">
+    <li *ngFor="let x of displayerrors">{{x}}</li>
+</ul>
+<form (ngSubmit)='newProduct()'>
+Name:<input [(ngModel)]="newproduct.name" type='text' name='a'>
+<br>Description:<input [(ngModel)]="newproduct.description" type='text' name='b'>
+<br>Picture (please include a url link):<input [(ngModel)]="newproduct.img_url" type='text' name='c'>
+<br>Price:<input [(ngModel)]="newproduct.price" type='text' name='c'>
+<br><input type='submit' value="ADD PRODUCT">
+</form>
+<button [routerLink]="['/products']">CANCEL</button>

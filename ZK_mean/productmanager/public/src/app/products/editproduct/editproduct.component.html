@@ -1,0 +1,15 @@
+<h1>Edit {{editproduct.name}}:</h1>
+<ul *ngIf="(displayerrors.length>0)">
+        <li *ngFor="let x of displayerrors">{{x}}</li>
+    </ul>
+    
+<form (ngSubmit)='updateProduct()'>
+Name:<input [(ngModel)]="editproduct.name" type='text' name='a'>
+<br>Description:<input [(ngModel)]="editproduct.description" type='text' name='b'>
+<br>Picture (please include a url link):<input [(ngModel)]="editproduct.img_url" type='text' name='c'>
+<br>Price:<input [(ngModel)]="editproduct.price" type='text' name='d'>
+<br><input type='submit' value="UPDATE PRODUCT">
+</form>
+<button (click)="deleteproduct()">Delete</button>
+<button [routerLink]="['/products']">CANCEL</button>
+

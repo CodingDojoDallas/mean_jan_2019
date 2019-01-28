@@ -13,6 +13,7 @@ writers=[];
   ngOnInit() {
     this._aiservice.indexWriters().subscribe((data:any)=>{this.writers=data});
     console.log('got the writers',this.writers);
+    this._aiservice.createWriters(4).subscribe((data:any)=>{});
   }
 
 }

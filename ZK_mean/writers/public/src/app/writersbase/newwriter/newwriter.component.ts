@@ -23,7 +23,7 @@ export class NewwriterComponent implements OnInit {
 
   }
   createwriter(){
-    this._aiservice.createWriters(this.newwriter);
+    this._aiservice.createWriters(this.newwriter).subscribe((data:any)=>{});
     console.log('create component function run');
   }
 }
