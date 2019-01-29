@@ -1,0 +1,7 @@
+<h2>Your coinage activities:</h2>
+<ul>
+  <li *ngFor='let comment of text'>{{comment.text}} 
+  <button [routerLink] = "['/ledger', 'details', comment.id]">Details</button>
+  </li>
+</ul>
+<router-outlet></router-outlet>

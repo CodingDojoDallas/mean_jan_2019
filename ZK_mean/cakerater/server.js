@@ -51,6 +51,9 @@ var routemyapp = function(){
                 res.json(cake);}
         })
     });
+    app.all("*",function(req,res){
+        res.sendFile(path.resolve("./cakeapp/dist/cakeapp/index.html"))
+    });
 
 
 }
